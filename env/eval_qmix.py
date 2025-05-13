@@ -1,5 +1,5 @@
 import matplotlib
-matplotlib.use("TkAgg")  # ✅ Fixes PyCharm bug
+matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -10,7 +10,7 @@ from traffic_env_multiagent import MultiAgentTrafficEnv
 
 # ==== Config ====
 SUMO_CONFIG = "C:/Users/habdi/traffic_marl_project/sumo/osm.sumocfg"
-USE_GUI = False  # ✅ This launches the SUMO GUI viewer
+USE_GUI = False
 EVAL_LENGTH = 1800
 SMOOTHING_WINDOW = 20
 MODEL_DIR = "C:/Users/habdi/traffic_marl_project/env/qmix_traffic_model"

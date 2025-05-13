@@ -71,36 +71,3 @@ for veh_id in ev_ids:
 ppo_ev_df = pd.DataFrame(ev_data)
 ppo_ev_df.to_csv("ppo_eval_results.csv", index=False)
 print("📁 PPO EV results saved to ppo_eval_results.csv (ev_id, wait_time, travel_time)")
-
-# ==== Plotting ====
-timesteps = list(range(step_count))
-bus_waiting_series = pd.Series(bus_waiting_times).rolling(window=SMOOTHING_WINDOW, min_periods=1).mean()
-queue_series = pd.Series(queue_lengths).rolling(window=SMOOTHING_WINDOW, min_periods=1).mean()
-reward_series = pd.Series(rewards).rolling(window=SMOOTHING_WINDOW, min_periods=1).mean()
-
-plt.figure(figsize=(10, 5))
-plt.plot(timesteps, bus_waiting_series, label='Smoothed EV Waiting Time', color='blue')
-plt.title("EV Waiting Time Over Time - PPO Controller")
-plt.xlabel("Timestep")
-plt.ylabel("Waiting Time (seconds)")
-plt.grid(True)
-plt.legend()
-
-plt.figure(figsize=(10, 5))
-plt.plot(timesteps, queue_series, label='Smoothed Average Queue Length', color='orange')
-plt.title("Queue Length Over Time - PPO Controller")
-plt.xlabel("Timestep")
-plt.ylabel("Vehicles per lane")
-plt.grid(True)
-plt.legend()
-
-plt.figure(figsize=(10, 5))
-plt.plot(timesteps, reward_series, label='Smoothed Reward per Step', color='green')
-plt.title("Reward Over Time - PPO Controller")
-plt.xlabel("Timestep")
-plt.ylabel("Reward")
-plt.grid(True)
-plt.legend()
-
-plt.tight_layout()
-plt.show()

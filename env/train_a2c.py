@@ -33,7 +33,7 @@ vec_env = VecNormalize(vec_env, norm_obs=True, norm_reward=True, clip_obs=10.)
 
 # ==== A2C Hyperparameters ====
 policy_kwargs = dict(
-    net_arch=[dict(pi=[128, 128], vf=[128, 128])]  # 🔼 Deeper policy & value net
+    net_arch=[dict(pi=[128, 128], vf=[128, 128])]  # Deeper policy & value net
 )
 
 model = A2C(

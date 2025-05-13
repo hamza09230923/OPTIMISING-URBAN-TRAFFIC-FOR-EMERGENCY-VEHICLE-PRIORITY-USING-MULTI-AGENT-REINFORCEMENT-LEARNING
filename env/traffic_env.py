@@ -222,6 +222,3 @@ class TrafficEnv(gym.Env):
 
     def close(self):
         traci.close()
-
-
-# TALK ABOUT GYMNASIUEM ISSUE
